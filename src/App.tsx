@@ -10,7 +10,7 @@ const App = () => {
     return;
   }, []);
   return (
-    <div className="p-2">
+    <div className="min-h-screen">
       <RoutesConfig />
       <Toaster closeButton />
     </div>

@@ -1,0 +1,12 @@
+.hero-swiper .swiper-pagination-bullet {
+  background: white;
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary);
+  width: 20px;
+  border-radius: 10px;
+  opacity: 1;
+}

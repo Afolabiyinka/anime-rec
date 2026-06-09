@@ -3,10 +3,10 @@ import NavBar from "./NavBar";
 import MobileNav from "./MobileNav";
 
 const NavLayout = () => {
-  const isMobile = useIsMobile(1024);
+  const isMobile = useIsMobile();
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <NavBar />
 
       {isMobile && <MobileNav />}
