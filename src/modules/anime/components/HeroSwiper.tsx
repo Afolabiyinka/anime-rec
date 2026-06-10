@@ -4,7 +4,6 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import {
   PlayIcon,
   BookmarkSimpleIcon,
-  ArrowRightIcon,
 } from "@phosphor-icons/react";
 import { useState } from "react";
 import type { Variants } from "framer-motion";
