@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import {
-  PlayIcon,
-  BookmarkSimpleIcon,
-} from "@phosphor-icons/react";
+import { PlayIcon, BookmarkSimpleIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import type { Variants } from "framer-motion";
 
@@ -85,10 +82,12 @@ export default function HeroSwiper({ animes }: HeroSwiperProps) {
       className="hero-swiper h-full rounded-2xl"
     >
       {animes.map((anime, index) => {
+        // const animeTitle = anime.titless[0].type === "English" || anime.title;
+
         return (
           <SwiperSlide
             key={`${anime.mal_id}-${index}`}
-            className="h-full w-full  min-h-[87vh]"
+            className="h-full w-full  md:min-h-[87vh]"
           >
             <motion.div
               key={`${anime.mal_id}-${active}`}
@@ -99,7 +98,7 @@ export default function HeroSwiper({ animes }: HeroSwiperProps) {
             >
               <motion.div
                 variants={poster}
-                className="w-full lg:w-[30%] shrink-0 rounded-2xl overflow-hidden shadow-2xl"
+                className="w-full lg:w-[25%] shrink-0 rounded-2xl overflow-hidden shadow-2xl"
               >
                 <motion.img
                   whileHover={{ scale: 1.03 }}
@@ -151,7 +150,10 @@ export default function HeroSwiper({ animes }: HeroSwiperProps) {
                   <CustomBtn text="View More" size="lg" variant={`outline`} />
                 </motion.div>
 
-                <motion.div variants={item} className="flex gap-8 text-sm">
+                <motion.div
+                  variants={item}
+                  className="flex flex-col md:flex-row gap-8 text-sm"
+                >
                   {anime.score && (
                     <div>
                       <span className="text-white/40">Rating </span>

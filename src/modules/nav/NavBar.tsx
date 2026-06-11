@@ -1,20 +1,21 @@
 import { MagnifyingGlassIcon, UserIcon } from "@phosphor-icons/react";
 import { NavLinks } from "./libs/nav";
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import IconButton from "@/components/custom/IconButton";
 import Logo from "@/components/custom/Logo";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="mt-3 p-3  hidden md:flex justify-between items-center px-24">
       <Logo />
 
       <span className="flex gap-10 items-center">
-        {NavLinks.map(({ icon: Icon, link, name }) => {
+        {NavLinks.map(({ icon: Icon, link, name }, i) => {
           const location = useLocation();
           const isActive = link === location.pathname;
           return (
-            <NavLink to={link} className={`flex gap-2 items-center`}>
+            <NavLink to={link} className={`flex gap-2 items-center`} key={i}>
               <div
                 className={`flex items-center justify-center ${
                   isActive
@@ -35,12 +36,15 @@ const NavBar = () => {
           icon={MagnifyingGlassIcon}
           tooltip="Search"
           weight="regular"
+          variant={`outline`}
+          onClick={() => navigate("/search")}
         />
         <IconButton
           icon={UserIcon}
           variant={`outline`}
           tooltip="Account"
           weight="regular"
+          onClick={() => navigate("/me")}
         />
       </span>
     </nav>
