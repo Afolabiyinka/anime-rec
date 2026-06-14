@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon, SmileyXEyesIcon } from "@phosphor-icons/react";
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import CustomBtn from "@/components/custom/CustomBtn";
@@ -12,8 +12,10 @@ function NotFound() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
+        className="flex flex-col justify-center items-center"
       >
-        <p className="mt-6 text-3xl font-bold leading-snug md:text-4xl">
+        <SmileyXEyesIcon size={100} weight="thin" />
+        <p className="mt-3 text-3xl font-extrabold leading-snug md:text-4xl">
           Opps! <br />
           Page not Found!
         </p>
@@ -23,6 +25,7 @@ function NotFound() {
         </p>
         <CustomBtn
           size={`lg`}
+          variant={`secondary`}
           onClick={() => navigate("/")}
           text="Go Back"
           startIcon={ArrowLeftIcon}

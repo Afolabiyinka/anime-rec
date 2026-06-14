@@ -1,6 +1,7 @@
 import type { Icon } from "@phosphor-icons/react";
 import { buttonVariants, Button as ShadButton } from "../ui/button";
 import type { VariantProps } from "class-variance-authority";
+import SpinningLoader from "./spinning-loader";
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
@@ -10,6 +11,7 @@ interface ButtonProps {
   onClick?: () => void;
   variant?: ButtonVariantProps["variant"];
   size?: ButtonVariantProps["size"];
+  loading?: boolean;
 }
 
 const CustomBtn = ({
@@ -18,6 +20,7 @@ const CustomBtn = ({
   onClick,
   variant,
   size,
+  loading,
 }: ButtonProps) => {
   return (
     <ShadButton
@@ -26,7 +29,8 @@ const CustomBtn = ({
       onClick={onClick}
       className="gap-2"
     >
-      {IconComponent && <IconComponent size={18} />}
+      {IconComponent && !loading && <IconComponent size={18} />}
+      {loading && <SpinningLoader />}
       {text}
     </ShadButton>
   );

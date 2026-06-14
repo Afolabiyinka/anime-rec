@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { HouseIcon } from "@phosphor-icons/react";
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import SpinningLoader from "@/components/custom/spinning-loader";
+
+import { TriangleDashedIcon } from "@phosphor-icons/react";
 
 const CustomError = ({ message }: { message?: string }) => {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const CustomError = ({ message }: { message?: string }) => {
         <div className="flex justify-center">
           <div className="p-4 rounded-full bg-destructive/10 text-destructive">
             {/* <AlertTriangle /> */}
+            <TriangleDashedIcon size={30} />
           </div>
         </div>
 
@@ -35,7 +36,6 @@ const CustomError = ({ message }: { message?: string }) => {
 
         <div className="flex flex-col md:flex-row gap-3  items-center justify-center">
           <Button onClick={() => window.location.reload()} size={`lg`}>
-            <SpinningLoader />
             Try again
           </Button>
 
@@ -44,7 +44,6 @@ const CustomError = ({ message }: { message?: string }) => {
             variant="outline"
             onClick={() => navigate("/dashboard")}
           >
-            <HouseIcon />
             Go home
           </Button>
         </div>
